@@ -1,7 +1,7 @@
 # Casino
--Alejandro Machado Email: Ale_machado0511@hotmail.com
+-Alejandro Machado, Email: Ale_machado0511@hotmail.com
 
--Lucas Sosa Email: Lucassosa2019@hotmail.com
+-Lucas Sosa, Email: Lucassosa2019@hotmail.com
 
 Tematica: Plataforma de agentes de casino virtual
 
