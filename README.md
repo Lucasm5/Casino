@@ -13,40 +13,29 @@ Imagen de entidad relación:
 
 ![WhatsApp Image 2024-05-04 at 18 00 19](https://github.com/DAleMF05/Casino/assets/166235026/53e45133-50c3-430e-b359-e870ce67394f)
 
-Código SQL:
-
 --
 -- Estructura de tabla para la tabla `agentes`
 --
 
 CREATE TABLE `agentes` (
-  `id` int(11) NOT NULL,
+  `id_agente` int(11) NOT NULL,
   `nombre` varchar(250) NOT NULL,
   `saldo` double(10,2) NOT NULL,
   `email` varchar(250) NOT NULL,
   `activado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `agentes`
---
-
-INSERT INTO `agentes` (`id`, `nombre`, `saldo`, `email`, `activado`) VALUES
-(1, 'Lucas', 920000.00, 'lucassosa2019@hotmail.com', 1),
-(3, 'Alejandro', 4000.00, 'ale_machado0511@hotmail.com', 1);
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `cliente`
 --
 
 CREATE TABLE `cliente` (
-  `id` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `nombre_usuario` varchar(100) NOT NULL,
   `saldo` double(10,2) NOT NULL,
   `activado` tinyint(1) NOT NULL,
-  `id_cliente` int(11) NOT NULL
+  `id_agente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -57,14 +46,14 @@ CREATE TABLE `cliente` (
 -- Indices de la tabla `agentes`
 --
 ALTER TABLE `agentes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_agente`);
 
 --
 -- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_cliente_agentes` (`id_cliente`);
+  ADD PRIMARY KEY (`id_cliente`),
+  ADD KEY `fk_cliente_agentes` (`id_agente`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -74,13 +63,13 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de la tabla `agentes`
 --
 ALTER TABLE `agentes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_agente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -90,4 +79,5 @@ ALTER TABLE `cliente`
 -- Filtros para la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD CONSTRAINT `fk_cliente_agentes` FOREIGN KEY (`id_cliente`) REFERENCES `agentes` (`id`);
+  ADD CONSTRAINT `fk_cliente_agentes` FOREIGN KEY (`id_cliente`) REFERENCES `agentes` (`id_agente`);
+
